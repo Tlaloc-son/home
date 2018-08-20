@@ -1,0 +1,20 @@
+spring:
+  banner:
+    charset: UTF-8
+    location: classpath:/banners/banner.txt
+  datasource:
+    url: jdbc:mysql://tlaloc-son.com:3310/prueba?useSSL=false
+    username: personal
+    password: QwrAsf124
+  thymeleaf:
+    cache: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/views/ 
+    suffix: .html
+server:
+  error:
+    whitelabel:
+      enabled: true
+    path: /error
