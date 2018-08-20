@@ -13,7 +13,7 @@ import com.tlalocson.home.controller.HomeController;
 @RequestMapping("/home")
 public class HomeController {
 
-public static final Log LOGGER = LogFactory.getLog(HomeController.class);
+	public static final Log LOGGER = LogFactory.getLog(HomeController.class);
 	
 	@GetMapping("")
 	public String emptyView() {
