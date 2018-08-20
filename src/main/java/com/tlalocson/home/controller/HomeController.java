@@ -14,6 +14,8 @@ import com.tlalocson.home.controller.HomeController;
 public class HomeController {
 
 	public static final Log LOGGER = LogFactory.getLog(HomeController.class);
+	public static final String INDEX = "index";
+	public static final String RAINDROPS = "raindrops";
 	
 	@GetMapping("")
 	public String emptyView() {
@@ -22,8 +24,11 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public ModelAndView getHomeView() {
-		ModelAndView modelView = new ModelAndView("home");		
-		modelView.addObject("mensaje", "PANTALLA DE HOME");		
-		return modelView;
+		return new ModelAndView(INDEX);
+	}
+	
+	@GetMapping("/raindrops")
+	public ModelAndView getRaindropsView() {
+		return new ModelAndView(RAINDROPS);
 	}
 }
