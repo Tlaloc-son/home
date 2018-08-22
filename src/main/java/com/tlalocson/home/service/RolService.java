@@ -8,4 +8,6 @@ public interface RolService {
 
 	public List<RolModel> getRoles();
 	public RolModel getRol(int idRol);
+	public String executeSP(int idRol);
+	public String executeFN(int idRol);	
 }

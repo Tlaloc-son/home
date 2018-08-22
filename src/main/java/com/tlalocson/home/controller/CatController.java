@@ -41,4 +41,11 @@ public class CatController {
 		String jsonResponse = gson.toJson(rol);
 		return new ResponseEntity<>(jsonResponse, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/test/rol/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<String> getRolTest(@PathVariable(value="id") int idRol) {		
+		LOGGER.info(rolService.executeFN(idRol));
+		LOGGER.info(rolService.executeSP(idRol));
+		return new ResponseEntity<>("OK", HttpStatus.OK);
+	}
 }
