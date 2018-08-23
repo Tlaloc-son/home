@@ -17,5 +17,8 @@ public class UtilServiceImpl implements UtilService{
 		return utilMapper.getCurrentTime();
 	}
 
-	
+	@Override
+	public String getCurrentDate() {		
+		return utilMapper.getCurrentDate();
+	}
 }

@@ -16,6 +16,7 @@ public class HomeController {
 	public static final Log LOGGER = LogFactory.getLog(HomeController.class);
 	public static final String INDEX = "index";
 	public static final String RAINDROPS = "raindrops";
+	public static final String VIDEO = "video";
 	
 	@GetMapping("")
 	public String emptyView() {
@@ -30,5 +31,10 @@ public class HomeController {
 	@GetMapping("/raindrops")
 	public ModelAndView getRaindropsView() {
 		return new ModelAndView(RAINDROPS);
+	}
+	
+	@GetMapping("/video")
+	public ModelAndView getVideoView() {
+		return new ModelAndView(VIDEO);
 	}
 }

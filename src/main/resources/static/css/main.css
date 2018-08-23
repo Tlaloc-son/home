@@ -689,8 +689,8 @@ body {
 }
 .main-menu-container {
 	position: absolute;
-	left: 100px;
-	bottom: 50px;
+	left: 43%;
+	top: 50px;
 	z-index: 999;
 }
 .main-menu-container .main-menu {

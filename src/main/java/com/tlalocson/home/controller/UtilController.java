@@ -33,4 +33,27 @@ public class UtilController {
 		}
 		return new ResponseEntity<>(jsonResponse.toString(), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/date", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<String> getCurrentDate() {		
+		JSONObject jsonResponse = new JSONObject();
+		try {
+			jsonResponse.put("date", utilService.getCurrentDate());
+		} catch (JSONException e) {		
+			LOGGER.error(e.getMessage());
+		}
+		return new ResponseEntity<>(jsonResponse.toString(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/date-time", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<String> getCurrentDateTime() {		
+		JSONObject jsonResponse = new JSONObject();
+		try {
+			jsonResponse.put("date", utilService.getCurrentDate());
+			jsonResponse.put("time", utilService.getCurrentTime());
+		} catch (JSONException e) {		
+			LOGGER.error(e.getMessage());
+		}
+		return new ResponseEntity<>(jsonResponse.toString(), HttpStatus.OK);
+	}
 }

@@ -12,4 +12,8 @@ public interface UtilMapper {
 	@Select("select current_time()")
 	@ResultType(String.class)
 	String getCurrentTime();
+	
+	@Select("select current_date()")
+	@ResultType(String.class)
+	String getCurrentDate();
 }

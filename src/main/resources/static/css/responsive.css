@@ -13,10 +13,9 @@
 		height: 450px;
 	}
 	.main-menu-container {
-		left: auto;
+		left: 43%;
 		right: 25px;
-		bottom: auto;
-		top: 25px;
+		top: 50px;		
 	}
 }
 @media (max-width: 1024px) {
