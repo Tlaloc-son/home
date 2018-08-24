@@ -1,3 +1,4 @@
+
 function getCountDown(cdate) {
 	// Set the unit values in milliseconds.
 	var msecPerMinute = 1000 * 60;
@@ -91,24 +92,60 @@ function scaleCoordinates(delta, firstTime) {
 	});
 }
 
+var refereceTime = new Date();
+var difMillisecondsTime;
+var serverMysqlTime;
+
+function addOneSecond(){	
+	difMillisecondsTime = (new Date().getTime()) - refereceTime.getTime();
+	refereceTime = new Date();
+	
+	serverMysqlTime.setMilliseconds(serverMysqlTime.getMilliseconds() + difMillisecondsTime);	
+	
+	var hours = serverMysqlTime.getHours();
+	var minutes = serverMysqlTime.getMinutes();
+	var seconds = serverMysqlTime.getSeconds();	
+	$('#timeleft').text(((hours < 10) ? '0' + hours : hours) + " : " + ((minutes < 10) ? '0' + minutes : minutes) + " : " + ((seconds < 10) ? '0' + seconds : seconds));	
+	
+	setTimeout(addOneSecond, 30);
+}
 
 $(document).ready(function() {
+	var request = $.ajax({
+	  url: "/util/date-time",
+	  method: "GET"		 
+	});
+	 
+	request.done(function(response, status) {
+		serverMysqlTime = new Date(response.date + " " + response.time);
+		addOneSecond();
+		initClock();		
+	});
+	 
+	request.fail(function(response, status) {
+		console.log("Fail:" + textStatus );	  
+	});
+	
+	request.always(function(response, status) {
+		console.log("Always:" + response.date + " " + response.time);	  
+	});
+
+}); 
+
+function initClock(){
 	if( jQuery('link[href*="css/dark-theme.css"]').length ) {
 		var opts={plate:"#424242",marks:"#424242",label:"#424242",hours:"#424242",minutes:"#424242",seconds:"#424242"};
 	} else {
 		var opts={plate:"#FFFFFF",marks:"#FFFFFF",label:"#FFFFFF",hours:"#FFFFFF",minutes:"#FFFFFF",seconds:"#FFFFFF"};
 	}
 
-
 	SVG('canvas', '100%').clock('100%', '', opts).start();
 
 	var n = initNumbers();
 	$('#time-container .numbers-container').append(n);
 
+	/*
 	$("#canvas").everyTime("1s", function(i) {
-
-		/* Date and time when your site starts to work */
-
 		var c = {
 			year : 2016,
 			month : 2,
@@ -128,7 +165,7 @@ $(document).ready(function() {
 		//hh min sec milsec
 		$('#timeleft').text(getCountDown(cd));
 	});
-
+	*/
 	//////////////////////////////////////////////////////////////////////////////////////
 	var delta = 0;
 	var curWidth = $('#time-container').width();
@@ -141,5 +178,4 @@ $(document).ready(function() {
 		scaleCoordinates($('#time-container').width() - 555, false);
 	});
 	///////////////////////////////////////////////////////////////////////////////////////
-
-}); 
+}

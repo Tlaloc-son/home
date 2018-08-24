@@ -1,3 +1,4 @@
+
 (function($) {
 	/* ======= Clear Default ====== */
 	$.fn.clearDefault = function() {
@@ -24,24 +25,7 @@
 
 
 	jQuery(document).ready(function($) {
-		"use strict";
-
-		var request = $.ajax({
-		  url: "/util/date-time",
-		  method: "GET"
-		});
-		 
-		request.done(function(response, status) {
-			console.log("Done:" + response);
-		});
-		 
-		request.fail(function(response, status) {
-			console.log("Fail:" + textStatus );	  
-		});
-		
-		request.always(function(response, status) {
-			console.log("Always:" + response );	  
-		});
+		"use strict";		
 		
 		$('.show_toggle a').click(function(){
 			$('body').toggleClass('menu_show');
@@ -181,8 +165,6 @@
 	});
 
 })(jQuery);
-
-
 
 /* Forms Validation */
 function formValidation(form) {
