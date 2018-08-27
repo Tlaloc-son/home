@@ -10,10 +10,10 @@
 
 	/* ======= Height Fix ====== */
 	function vertCenter(item) {
-		"use strict";
-		item.css({
-			'margin-top' : '-' + parseInt((item.height() / 2), 0) + 'px'
-		}).fadeIn();
+//		"use strict";
+//		item.css({
+//			'margin-top' : '-' + parseInt((item.height() / 2), 0) + 'px'
+//		}).fadeIn();
 	}
 
 	jQuery(window).load(function(){
@@ -34,52 +34,25 @@
 		});
 
 		$('.form_submit').click(function(){
+			event.preventDefault();
+			
 			var form = $(this).parents('form');
 			form.find('.form_item').removeClass('error');
-			form.find('.error_block').remove();
-			var post_data;
-			var errors = formValidation(form),
-				output;
+			form.find('.error_block').remove();			
+			var errors = formValidation(form);
+			
 			if( Object.keys(errors).length > 0 ) {
 				showErrors(form, errors);
 			} else {
 				if(form.attr('id') == 'contacts_form') {
- 					post_data = {
-            		    'name'     : $('input[name=name]').val(),
-            		    'email'    : $('input[name=email]').val(),
-            		    'message'  : $('input[name=message]').val()
-            		};
-
-            		//Ajax post data to server
-            		jQuery.post('contacts.php', post_data, function(response){
-            		    if(response.type == 'error'){ //load json data from server and output message
-            		        output = '<div class="error_block">'+response.text+'</div>';
-            		    } else{
-            		        output = '<div class="success">'+response.text+'</div>';
-            		        //reset values in all input fields
-            		        $("#contacts_form .form_item").val('');
-            		    }
-            		    form.find('.form_row').slideUp();
-            		    form.find("#contact_results").hide().html(output).slideDown();
-            		}, 'json');
+					sendContact(form);				
         		} else {
-        			post_data = {
-            		    'subscribe_email': $('input[name=subscribe_email]').val(),
-            		};
-
-            		jQuery.post('subscribe.php', post_data, function(response){
-
-        		        output = '<div class="success">'+response.text+'</div>';
-        		        //reset values in all input fields
-        		        $("#contacts_form .form_item").val('');
-        		        form.find('.form_inner').slideUp();
-            		    form.find("#form_results").hide().html(output).slideDown();
-            		}, 'json');
+        			alert("Probando");
         		}
 
-		}
-		return false;
-	});
+			}
+			return false;
+		});
 
 		$('.side-page').click(function() {
 			var curPage = $(this).attr('id');
@@ -168,7 +141,9 @@
 
 /* Forms Validation */
 function formValidation(form) {
-
+	//Limpia mensajes de insert
+	form.find("#contact_results").hide().html("").slideDown();
+	
 	var error = {};
 
 	if(form) {

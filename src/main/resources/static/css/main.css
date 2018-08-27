@@ -363,7 +363,7 @@ body {
 #clock {
 	position: absolute;
 	width: 100%;
-	top: 50%;
+	top: 100px;
 	position: absolute;
 	opacity: 0;
 	z-index: -1;
@@ -395,7 +395,8 @@ body {
 	position: relative;
 	width: 420px;
 }
-.subscribe input[type="email"] {
+.subscribe input[type="email"],
+.subscribe input[type="number"] {
 	display: block;
 	float: left;
 	/*width: 315px;*/
@@ -523,6 +524,18 @@ body {
 .contact-list {
 	max-width: 342px;
 	margin: 31px auto 0px auto;
+	text-align: center;
+}
+.contact-list textarea {
+	width: 100%;	
+	line-height: 32px;
+	margin-bottom: 15px;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #a8a8aa;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 18px;
+	color: #ffffff;
 	text-align: center;
 }
 .contact-list input[type="text"],
@@ -688,9 +701,10 @@ body {
 	border: none;
 }
 .main-menu-container {
-	position: absolute;
-	left: 43%;
+	position: absolute;	
 	top: 50px;
+	left: 50%;
+	margin-left: -125px;
 	z-index: 999;
 }
 .main-menu-container .main-menu {
@@ -701,6 +715,9 @@ body {
 .main-menu li {
 	float: left;
 	margin-right: 20px;
+}
+.main-menu li:last-child {
+	margin-right: 0px;
 }
 .main-menu li a {
 	display: block;
@@ -737,19 +754,21 @@ body {
 [7. Social]
 */
 
-.social-container {
-	position: absolute;
-	bottom: 56px;
-	right: 50px;
-	z-index: 50;
+.social-container {	
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding-top: 10px;
+    padding-bottom: 20px;    
+    text-align: center;
 }
 .social {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-.social li {
-	float: left;
+.social li {	
+	display: inline-block;
 	margin: 0 8px;
 }
 .social li a:hover {

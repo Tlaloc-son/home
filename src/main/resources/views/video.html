@@ -65,10 +65,20 @@
 				<p>Both services are dockerized in a Ubuntu server supported by a droplet in DigitalOcean in NYC3.</p> 
 				<p>So, i'm accepting donations to keep it online.</p>
 				<form action="#" class="subscribe" id="subscribe">
-					<input type="email" placeholder="$" class="email form_item requiredField" name="subscribe_email" />
+					<input type="number" placeholder="$" class="mount_donation form_item requiredField" name="mount_donation" />
 					<input type="submit" class='form_submit' value="Donate" />
 					<div id="form_results"></div>
 				</form>
+				<section class="social-container">
+					<ul class="social">
+						<li>
+							<a href="https://www.youtube.com/channel/UC3AyPxTJiKsfrUzcOohFTfg"><img src="#" th:src="@{/img/icons/youtube-icon.png}" alt="" /></a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/carlosisaac.verachavez"><img src="#" th:src="@{/img/icons/facebook-icon.png}" alt="" /></a>
+						</li>
+					</ul>
+				</section>
 			</div>
 			<div class="mainarea-content">
 				<div id="skills" data-page="skills" class="side-page side-left went-left">
@@ -127,18 +137,15 @@
 							<br>
 							Mexico City.
 						</p>
-						<form id='contacts_form' action="#" class="contact-list">
-							<div class="field-row">
-								<input class="form_item" type="text" id="name" name="name" placeholder="Name" />
-							</div>
+						<form id='contacts_form' action="#" class="contact-list">							
 							<div class="field-row">
 								<input class="form_item" type="email" id="email" name="email" placeholder="E-mail" />
 							</div>
 							<div class="field-row">
 								<input class="form_item" type="text" id="subject" name="subject" placeholder="Subject" />
 							</div>
-							<div class="field-row">
-								<input class="form_item" type="text" id="message" name="message" placeholder="Message" />
+							<div class="field-row">								
+								<textarea class="form_item" id="message" name="message" placeholder="Message (120 characters)" maxlength="120" rows="3" cols=""></textarea>								
 							</div>
 							<div class="field-row">
 								<input type="submit" class="form_submit" value="Insert" />
@@ -150,16 +157,7 @@
 			</div>
 			<a class="close" href="#"><img alt="" src="#" th:src="@{/img/close.png}"></a>
 		</section>
-		<section class="social-container">
-			<ul class="social">
-				<li>
-					<a href="https://www.youtube.com/channel/UC3AyPxTJiKsfrUzcOohFTfg"><img src="#" th:src="@{/img/icons/youtube-icon.png}" alt="" /></a>
-				</li>
-				<li>
-					<a href="https://www.facebook.com/carlosisaac.verachavez"><img src="#" th:src="@{/img/icons/facebook-icon.png}" alt="" /></a>
-				</li>
-			</ul>
-		</section>
+		
 
 		<script src="#" th:src="@{/js/vendor/jquery-1.11.1.min.js}" type="text/javascript" charset="utf-8"></script>
 		<script src="#" th:src="@{/js/vendor/min/classie.min.js}" type="text/javascript" charset="utf-8"></script>
@@ -176,14 +174,15 @@
 		<script src="#" th:src="@{/js/vendor/ThreeExtras.js}" type="text/javascript" charset="utf-8"></script>
 		<script src="#" th:src="@{/clock/js/jquery.timers.min.js}" type="text/javascript" charset="utf-8"></script>
 		<script src="#" th:src="@{/clock/js/clock.js}" type="text/javascript" charset="utf-8"></script>
+		<script src="#" th:src="@{/js/contact.js}" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$(function() {
-				var options = {
-					videoId : 'ZUxsgU3rJLk',
-					start : 10
-				};
-				$('body').tubular(options);
-			});
+// 			$(function() {
+// 				var options = {
+// 					videoId : 'ZUxsgU3rJLk',
+// 					start : 10
+// 				};
+// 				$('body').tubular(options);
+// 			});
 		</script>
 	</body>
 </html>

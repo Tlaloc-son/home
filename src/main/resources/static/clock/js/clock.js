@@ -62,7 +62,8 @@ function scaleCoordinates(delta, firstTime) {
 		var x = $(this).css('left');
 		//-px
 		x = x.substr(0, x.length - 2);
-		var y = $(this).css('top');
+		var y = $(this).css('top');		
+		
 		y = y.substr(0, y.length - 2);
 		var fs = $(this).css('font-size');
 		fs = fs.substr(0, fs.length - 2);
@@ -83,7 +84,7 @@ function scaleCoordinates(delta, firstTime) {
 		if( $(this).is('#timeleft') ) {
 			x = 0;
 		}
-
+		
 		$(this).css({
 			"left" : x + "px",
 			"top" : y + "px",
@@ -123,7 +124,7 @@ $(document).ready(function() {
 	});
 	 
 	request.fail(function(response, status) {
-		console.log("Fail:" + textStatus );	  
+		console.log("Fail:" + status );	  
 	});
 	
 	request.always(function(response, status) {
