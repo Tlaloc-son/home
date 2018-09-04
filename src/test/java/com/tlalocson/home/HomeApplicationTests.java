@@ -1,6 +1,5 @@
 package com.tlalocson.home;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
