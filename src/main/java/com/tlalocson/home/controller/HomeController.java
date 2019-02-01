@@ -20,18 +20,13 @@ public class HomeController {
 	
 	@GetMapping("")
 	public String emptyView() {
-		return "redirect:/home/";
+		return "redirect:/home/video";
 	}
 	
 	@GetMapping("/")
-	public ModelAndView getHomeView() {
-		return new ModelAndView(INDEX);
-	}
-	
-	@GetMapping("/raindrops")
-	public ModelAndView getRaindropsView() {
-		return new ModelAndView(RAINDROPS);
-	}
+	public String getHomeView() {
+		return "redirect:/home/video";
+	}	
 	
 	@GetMapping("/video")
 	public ModelAndView getVideoView() {

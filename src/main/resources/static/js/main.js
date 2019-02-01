@@ -47,7 +47,7 @@
 				if(form.attr('id') == 'contacts_form') {
 					sendContact(form);				
         		} else {
-        			alert("Probando");
+        			alert("Sorry, i have not finish this module yet");
         		}
 
 			}
@@ -137,7 +137,17 @@
 		onSmartResize = setTimeout( function(){resizeStuff() }, 200); //200 is time in miliseconds
 	});
 
+	init();
+	
 })(jQuery);
+
+function init(){
+	var options = {
+		videoId : 'ZUxsgU3rJLk',
+		start : 10
+	};
+	$('body').tubular(options);
+}
 
 /* Forms Validation */
 function formValidation(form) {

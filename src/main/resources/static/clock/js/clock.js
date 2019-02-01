@@ -97,7 +97,8 @@ var refereceTime = new Date();
 var difMillisecondsTime;
 var serverMysqlTime;
 
-function addOneSecond(){	
+function addOneSecond(){
+	
 	difMillisecondsTime = (new Date().getTime()) - refereceTime.getTime();
 	refereceTime = new Date();
 	
@@ -105,7 +106,7 @@ function addOneSecond(){
 	
 	var hours = serverMysqlTime.getHours();
 	var minutes = serverMysqlTime.getMinutes();
-	var seconds = serverMysqlTime.getSeconds();	
+	var seconds = ((serverMysqlTime.getSeconds()-1) == -1) ? 59 : serverMysqlTime.getSeconds()-1;	
 	$('#timeleft').text(((hours < 10) ? '0' + hours : hours) + " : " + ((minutes < 10) ? '0' + minutes : minutes) + " : " + ((seconds < 10) ? '0' + seconds : seconds));	
 	
 	setTimeout(addOneSecond, 30);

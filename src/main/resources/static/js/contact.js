@@ -8,7 +8,7 @@ function sendContact(form){
 	}
 	
 	var request = $.ajax({
-		url: "/contact/insert",
+		url: "isaac/contact/insert",
 		method: "POST",
 		contentType: "application/json;",
 		data: JSON.stringify(post_data)
