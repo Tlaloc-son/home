@@ -21,12 +21,8 @@ public class ContactServiceImpl implements ContactService{
 		Map<String, Object> params = new HashMap<>();
 		params.put("p_email", model.getEmail());
 		params.put("p_subject", model.getSubject());
-		params.put("p_message", model.getMessage());
-		contactMapper.inserContact(params);
-		String result = (String) params.get("p_result");
-		if(result.equals("EXITO"))
-			return true;
-		return false;
+		params.put("p_message", model.getMessage());		
+		return 1 == contactMapper.insertContact(params) ? true : false;
 	}
 
 	

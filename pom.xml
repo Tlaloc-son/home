@@ -6,9 +6,8 @@
 
 	<groupId>com.tlaloc-son</groupId>
 	<artifactId>home</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
+	<version>0.0.1-SNAPSHOT</version>
 	<name>home</name>
 	<description>Landing page for tlaloc-son</description>
 
@@ -79,6 +78,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -114,7 +114,7 @@ function addOneSecond(){
 
 $(document).ready(function() {
 	var request = $.ajax({
-	  url: "/util/date-time",
+	  url: $("#context").val() + "/util/date-time",
 	  method: "GET"		 
 	});
 	 
